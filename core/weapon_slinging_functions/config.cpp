@@ -21,15 +21,25 @@ class CfgFunctions
     { // weapon_slinging_fnc
         class functions
         {
-            class client_hasACE
+            class client_handleKilled
             {
 				postInit = 0;
-                file = "weapon_slinging_functions\functions\fn_client_hasACE.sqf";
+                file = "weapon_slinging_functions\functions\fn_client_handleKilled.sqf";
             };
             class client_handleSling
             {
 				postInit = 0;
                 file = "weapon_slinging_functions\functions\fn_client_handleSling.sqf";
+            };
+            class client_hasACE
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_hasACE.sqf";
+            };
+            class client_init
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_init.sqf";
             };
             class client_retrieveWeapon
             {
@@ -41,6 +51,24 @@ class CfgFunctions
 				postInit = 0;
                 file = "weapon_slinging_functions\functions\fn_client_slingWeapon.sqf";
             };
+            class server_executeAnim
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_server_executeAnim.sqf";
+            };
+            class server_lockInventory
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_server_lockInventory.sqf";
+            };
         };
+    };
+};
+
+class Extended_InitPost_EventHandlers {
+    class CAManBase {
+		class weapon_slinging_handleKilled {
+			init = "[(_this select 0)] call weapon_slinging_fnc_client_init";
+		};
     };
 };

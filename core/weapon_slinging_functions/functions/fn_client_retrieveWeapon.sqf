@@ -42,6 +42,6 @@ _unit setAmmo [primaryWeapon _unit, _ammo];
 
 _unit selectWeapon _weapon;
 
-_unit setVariable ["crow_sling", false, true];
+_unit setVariable ["crow_sling", false];
 
 // ignoring setting ammo for secondary mag for now, refer slingWeapon for more info

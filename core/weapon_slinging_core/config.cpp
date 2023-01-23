@@ -22,8 +22,8 @@ class cfgWeapons
 	{
 		class EventHandlers
 		{
-			reload		= "(_this select 0) setVariable [""crow_sling_reloading"", true, true]";
-			reloaded	= "(_this select 0) setVariable [""crow_sling_reloading"", false, true]";
+			reload		= "(_this select 0) setVariable [""crow_sling_reloading"", true]";
+			reloaded	= "(_this select 0) setVariable [""crow_sling_reloading"", false]";
 		};
 	};
 };
