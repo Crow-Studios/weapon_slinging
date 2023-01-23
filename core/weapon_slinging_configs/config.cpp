@@ -1,6 +1,6 @@
 class cfgPatches
 {
-	class weapon_slinging_common
+	class weapon_slinging_configs
 	{
 		units[] =
 		{
@@ -15,5 +15,4 @@ class cfgPatches
 	};
 };
 
-#include "config\cfgEventHandlers.hpp"
-#include "config\cfgUserActions.hpp"
+#include "configs\cfgSlings.hpp"

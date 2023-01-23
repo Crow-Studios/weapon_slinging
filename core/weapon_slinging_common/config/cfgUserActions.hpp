@@ -2,9 +2,9 @@ class CfgUserActions
 {
 	class crow_sling_slingWeapon
 	{// This class name is used for internal representation and also for the inputAction command.
-		displayName = "Sling Weapon";
-		tooltip = "Ideally, set this to the same keybind as your unequip weapon keybind";
-		onActivate = "[player, (primaryWeapon player)] call weapon_slinging_core_fnc_client_handleSling";		// _this is always true.
+		displayName = "Sling/Retrieve Weapon";
+		tooltip = "I'm not quite sure what happens if you set this to the same keybind as your unequip weapon...";
+		onActivate = "[player, (primaryWeapon player)] call weapon_slinging_fnc_client_handleSling";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
 		onAnalog = "";	// _this is the scalar analog value.
 		analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
