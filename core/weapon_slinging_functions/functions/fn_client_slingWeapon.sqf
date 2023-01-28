@@ -31,10 +31,12 @@ private _rail   = (_attachments select 1);
 private _optics = (_attachments select 2);
 private _bipod  = (_attachments select 3);
 
-private _offset     = [(configFile >> "weapon_slings" >> "default"), "offset", []] call BIS_fnc_returnConfigEntry;
-private _rotation   = [(configFile >> "weapon_slings" >> "default"), "rotation", 0] call BIS_fnc_returnConfigEntry;
-private _bone       = [(configFile >> "weapon_slings" >> "default"), "bone", ""] call BIS_fnc_returnConfigEntry;
-private _vector     = [(configFile >> "weapon_slings" >> "default"), "vector", []] call BIS_fnc_returnConfigEntry;
+private _slingType = profileNamespace getVariable ["crow_sling_slingType", "default"];
+
+private _offset     = [(configFile >> "weapon_slings" >> _slingType), "offset", []] call BIS_fnc_returnConfigEntry;
+private _rotation   = [(configFile >> "weapon_slings" >> _slingType), "rotation", 0] call BIS_fnc_returnConfigEntry;
+private _bone       = [(configFile >> "weapon_slings" >> _slingType), "bone", ""] call BIS_fnc_returnConfigEntry;
+private _vector     = [(configFile >> "weapon_slings" >> _slingType), "vector", []] call BIS_fnc_returnConfigEntry;
 
 if ( ([(configFile >> "weapon_slings" >> _weapon), "sling", false] call BIS_fnc_returnConfigEntry) isEqualTo true) then {
     _offset     = [(configFile >> "weapon_slings" >> _weapon), "offset", []] call BIS_fnc_returnConfigEntry;
@@ -43,7 +45,7 @@ if ( ([(configFile >> "weapon_slings" >> _weapon), "sling", false] call BIS_fnc_
     _vector     = [(configFile >> "weapon_slings" >> _weapon), "vector", []] call BIS_fnc_returnConfigEntry;
 };
 
-_weaponHolder attachTo [_unit, _offset, _bone, true];
+_weaponHolder attachTo [_unit, _offset, _bone, true]; // offset = left/right, back/forward, up/down
 _weaponHolder setDir _rotation; // move values to config
 _weaponHolder setVectorUp _vector;
 
