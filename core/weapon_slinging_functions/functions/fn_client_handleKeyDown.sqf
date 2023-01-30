@@ -1,15 +1,34 @@
 private _display_46_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", 
-"
+'
     hint str (_this select 1);
+    if (profileNamespace getVariable ["crow_sling_autoSling", false]) then 
+    {
 
-    if ((_this select 1) in actionKeys ""SwitchHandgun"") exitWith {};
+        switch (actionKeys (_this select 1)) do {
+        
+            case "SwitchHandgun": 
+            {
 
-    if ((_this select 1) in actionKeys ""SwitchPrimary"") exitWith {};
+            };
 
-    if ((_this select 1) in actionKeys ""SwitchSecondary"") exitWith {};
+            case "SwitchPrimary":
+            {
 
-    if ((_this select 1) in actionKeys ""binocular"") exitWith {};
-"
+            };
+            
+            case "SwitchSecondary": 
+            {
+
+            };
+
+            case "binocular": 
+            {
+
+            };
+        
+        };
+    };
+'
 ];
 
 _display_46_keyDown

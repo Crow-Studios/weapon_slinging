@@ -21,7 +21,7 @@ private _ammo = _unit ammo _weapon;
 
 _unit setVariable ["crow_sling_helper", _weaponHolder, true];
 
-_weaponHolder setVariable ["crow_sling_helper_weapon", _weapon];
+_weaponHolder setVariable ["crow_sling_helper_weapon", _weapon, true]; // fix taking in mp
 _weaponHolder setVariable ["crow_sling_helper_weapon_magazines", [_magazines, _ammo]];
 _weaponHolder setVariable ["crow_sling_helper_weapon_attachments", _attachments];
 // store data to be taken later
@@ -38,7 +38,7 @@ private _rotation   = [(configFile >> "weapon_slings" >> _slingType), "rotation"
 private _bone       = [(configFile >> "weapon_slings" >> _slingType), "bone", ""] call BIS_fnc_returnConfigEntry;
 private _vector     = [(configFile >> "weapon_slings" >> _slingType), "vector", []] call BIS_fnc_returnConfigEntry;
 
-if ( ([(configFile >> "weapon_slings" >> _weapon), "sling", false] call BIS_fnc_returnConfigEntry) isEqualTo true) then {
+if ( ([(configFile >> "weapon_slings" >> _weapon), "sling", 0] call BIS_fnc_returnConfigEntry) isEqualTo 1) then {
     _offset     = [(configFile >> "weapon_slings" >> _weapon), "offset", []] call BIS_fnc_returnConfigEntry;
     _rotation   = [(configFile >> "weapon_slings" >> _weapon), "rotation", 0] call BIS_fnc_returnConfigEntry;
     _bone       = [(configFile >> "weapon_slings" >> _weapon), "bone", ""] call BIS_fnc_returnConfigEntry;

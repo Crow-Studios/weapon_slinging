@@ -26,15 +26,26 @@ class weapon_slings
 
         rotation = 15;
     };
-    
-    // these are default classes, they can also be selected via CBA settings. If you want weapon specific ones, do this:
 
     /*
+
+    class arifle_SPAR_01_blk_F : default_tilted
+    {
+        sling = 1;
+        rotation = 43;
+    }; // debug class
     
+    */
+
+    /*
+
+    // these are default classes, they can also be selected via CBA settings. If you want weapon specific ones, do this:    
     class default; // import base class (if not already defined)
 
     class weapon_classname : default
     {
+        sling = 1;
+
         // custom values here
     };
     
