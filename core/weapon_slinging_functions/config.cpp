@@ -21,6 +21,11 @@ class CfgFunctions
     { // weapon_slinging_fnc
         class functions
         {
+            class client_handleKeyDown
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleKeyDown.sqf";
+            };
             class client_handleKilled
             {
 				postInit = 0;

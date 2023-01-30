@@ -14,4 +14,6 @@ inGameUISetEventHandler [
 	"
 ]; // please work
 
+[] spawn weapon_slinging_fnc_client_handleKeyDown;
+
 [_unit] call weapon_slinging_fnc_client_handleKilled;

@@ -1,4 +1,4 @@
-params ["_unit", "_weapon"];
+params ["_unit", "_weapon", ["_swapTo", "default"]];
 
 // Spawn this function
 
@@ -55,10 +55,34 @@ _weaponHolder addWeaponWithAttachmentsCargoGlobal [[_weapon, _muzzle, _rail, _op
 
 _unit removeWeapon _weapon;
 
-if !(handgunWeapon _unit isEqualTo "") then {
-    _unit selectWeapon (handgunWeapon _unit);
-} else {
-    [_unit, "amovpercmstpsnonwnondnon"] call weapon_slinging_fnc_server_executeAnim;
+switch (_swapTo) do 
+{
+    case "handgun":
+    {
+        if (handgunWeapon _unit isEqualTo "") exitWith {};
+        _unit selectWeapon (handgunWeapon _unit)
+    };
+
+    case "secondary": 
+    {
+        _unit selectWeapon (secondaryWeapon _unit)
+    };
+
+    case "binocular": 
+    {
+        _unit selectWeapon (binocular _unit)
+    };
+
+    case "default": 
+    {
+        [_unit, "amovpercmstpsnonwnondnon"] call weapon_slinging_fnc_server_executeAnim;
+    };
 };
+
+// if !(handgunWeapon _unit isEqualTo "") then {
+//     _unit selectWeapon (handgunWeapon _unit);
+// } else {
+//     [_unit, "amovpercmstpsnonwnondnon"] call weapon_slinging_fnc_server_executeAnim;
+// };
 
 _unit setVariable ["crow_sling", true];
