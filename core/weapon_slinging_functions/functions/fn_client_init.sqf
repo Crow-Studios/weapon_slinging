@@ -6,10 +6,12 @@ inGameUISetEventHandler [
 	if (_this select 3 == 'takeWeapon' && {(_this select 0) getVariable ['crow_sling_helper_weapon',false] isEqualTo false}) then 
 	{ 
 		false
-	} else {
+	};
+	if (_this select 3 == 'takeWeapon' && {(_this select 0) getVariable ['crow_sling_helper_weapon',""default""] != ""default""}) then 
+	{
 		true
-	}
+	};	
 	"
-]; // this took me far too long to figure out
+]; // please work
 
 [_unit] call weapon_slinging_fnc_client_handleKilled;
