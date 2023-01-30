@@ -2,7 +2,7 @@
 
 waituntil {!(IsNull (findDisplay 46))};
 
-private _display_46_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", 
+private _display_46_keyDown = findDisplay 46 displayAddEventHandler ["KeyUp", 
 '
     //hint str (_this select 1);
     if (profileNamespace getVariable ["crow_sling_autoSling", false]) then 
