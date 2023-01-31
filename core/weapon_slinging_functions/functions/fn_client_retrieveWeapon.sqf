@@ -2,7 +2,15 @@ params ["_unit"];
 
 // Spawn this function
 
-private _weapon = primaryWeapon _unit; // check if they picked up another weapon in the meantime
+//private _weaponType = [_unit] call weapon_slinging_fnc_client_handleSwapTo; // grab secondaryWeapon or primaryWeapon
+
+private _weapon = primaryWeapon _unit;
+
+// if (_weaponType isEqualTo "primary") then {
+//     _weapon = primaryWeapon _unit;
+// } else {
+//     _weapon = secondaryWeapon _unit;
+// };
 
 if !(_weapon isEqualTo "") exitWith {hint "You already have a weapon on the sling."};
 

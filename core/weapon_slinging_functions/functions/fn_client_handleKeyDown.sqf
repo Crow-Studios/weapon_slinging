@@ -18,28 +18,25 @@ private _display_46_keyDown = findDisplay 46 displayAddEventHandler ["KeyUp",
             {
                 if (handgunWeapon _unit isEqualTo "") exitWith {false};
                 [_unit, _weapon, "handgun"] spawn weapon_slinging_fnc_client_slingWeapon; 
-                //true
             };
             
             case ((_this select 1) in actionKeys "SwitchSecondary"):
             {
                 if (secondaryWeapon _unit isEqualTo "") exitWith {false};
+                //[_unit] spawn weapon_slinging_fnc_client_retrieveWeapon;
                 [_unit, _weapon, "secondary"] spawn weapon_slinging_fnc_client_slingWeapon; 
-                //true
             };
 
             case ((_this select 1) in actionKeys "binocular"):
             {
                 if (binocular _unit isEqualTo "") exitWith {false};
                 [_unit, _weapon, "binocular"] spawn weapon_slinging_fnc_client_slingWeapon; 
-                //true
             };
 
             case ((_this select 1) in actionKeys "SwitchPrimary"):
             {
                 if (primaryWeapon _unit != "") exitWith {false};
                 [_unit] spawn weapon_slinging_fnc_client_retrieveWeapon;
-                //true
             };
         
         };

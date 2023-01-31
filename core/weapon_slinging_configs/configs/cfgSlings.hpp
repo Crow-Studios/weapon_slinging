@@ -27,6 +27,14 @@ class weapon_slings
         rotation = 15;
     };
 
+    class default_back_launcher : default_back
+    {
+        offset[] = {0.03,0.45,0};
+        vector[] = {-0.1,2,0.5};
+
+        rotation = 15;
+    };
+
     /*
 
     class arifle_SPAR_01_blk_F : default_tilted
