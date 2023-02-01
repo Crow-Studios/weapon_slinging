@@ -21,11 +21,6 @@ class CfgFunctions
     { // weapon_slinging_fnc
         class functions
         {
-            class client_handleSwapTo
-            {
-				postInit = 0;
-                file = "weapon_slinging_functions\functions\fn_client_handleSwapTo.sqf";
-            };
             class client_handleAnim
             {
 				postInit = 0;
@@ -45,6 +40,16 @@ class CfgFunctions
             {
 				postInit = 0;
                 file = "weapon_slinging_functions\functions\fn_client_handleSling.sqf";
+            };
+            class client_handleSlingOpen
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleSlingOpen.sqf";
+            };
+            class client_handleSwapTo
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleSwapTo.sqf";
             };
             class client_hasACE
             {

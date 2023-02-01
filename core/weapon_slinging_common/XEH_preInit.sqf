@@ -27,3 +27,16 @@ ADDON = true;
 		profileNamespace setVariable ["crow_sling_autoSling",_value];
     }
 ] call CBA_fnc_addSetting;
+
+[
+    "crow_sling_restoreLoadout", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    "Restore Slinged Weapon After Respawn", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    "Weapon Slinging", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    false,
+    true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {  
+        params ["_value"];
+		profileNamespace setVariable ["crow_sling_restoreLoadout",_value];
+    }
+] call CBA_fnc_addSetting;

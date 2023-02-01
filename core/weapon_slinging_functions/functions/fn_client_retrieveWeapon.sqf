@@ -1,4 +1,4 @@
-params ["_unit"];
+params ["_unit", ["_corpse", objNull]];
 
 // Spawn this function
 
@@ -12,9 +12,18 @@ private _weapon = primaryWeapon _unit;
 //     _weapon = secondaryWeapon _unit;
 // };
 
-if !(_weapon isEqualTo "") exitWith {hint "You already have a weapon on the sling."};
+if !(_weapon isEqualTo "") exitWith {
+    //hint "You already have a weapon on the sling."
+    false
+};
 
-private _weaponHolder   = _unit getVariable ["crow_sling_helper", objNull];
+private _weaponHolder = objNull;
+
+if (_corpse isEqualTo objNull) then { // allow to retrieve from dead body on respawn
+    _weaponHolder   = _unit getVariable ["crow_sling_helper", objNull];
+} else {
+    _weaponHolder   = _corpse getVariable ["crow_sling_helper", objNull];
+};
 
 private _weapon         = _weaponHolder getVariable ["crow_sling_helper_weapon", ""];
 private _magazines      = _weaponHolder getVariable ["crow_sling_helper_weapon_magazines", []];

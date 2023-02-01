@@ -8,7 +8,7 @@ if (_unit getVariable ["crow_sling", false]) exitWith {};
 if !(vehicle _unit isEqualTo _unit) exitWith {nil};
 if (_weapon isEqualTo "") exitWith {nil};
 
-if (_weapon isEqualTo (secondaryWeapon _unit)) exitWith {[_unit, (secondaryWeapon _unit), _swapTo] spawn weapon_slinging_fnc_client_slingLauncher};
+//if (_weapon isEqualTo (secondaryWeapon _unit)) exitWith {[_unit, (secondaryWeapon _unit), _swapTo] spawn weapon_slinging_fnc_client_slingLauncher};
 
 if (_weapon != primaryWeapon _unit) exitWith {hint "You need to have your primary equipped to sling."};
 //if (stance _unit != "STAND") exitWith {hint "You need be standing to sling."};
@@ -17,6 +17,7 @@ private _weaponHolder = "GroundWeaponHolder_Scripted" createVehicle [0,0,0];
 //_weaponHolder setDamage 1;
 
 [_weaponHolder, true] call weapon_slinging_fnc_server_lockInventory; // never wants to be false, allows people to take the gun out of it normally (which breaks it)
+[_weaponHolder] call weapon_slinging_fnc_client_handleSlingOpen;
 
 private _magazines = primaryWeaponMagazine _unit; // returns ["main_mag", "secondary_mag"] (secondary_mag being the underbarrel etc)
 private _attachments = primaryWeaponItems _unit;
