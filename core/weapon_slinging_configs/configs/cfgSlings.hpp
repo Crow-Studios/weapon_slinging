@@ -30,9 +30,6 @@ class weapon_slings
     class default_back_launcher : default_back
     {
         offset[] = {0.03,0.45,0};
-        vector[] = {-0.1,2,0.5};
-
-        rotation = 15;
     };
 
     /*
