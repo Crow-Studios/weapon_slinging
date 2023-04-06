@@ -94,7 +94,7 @@ switch (_swapTo) do
     {
         // if (profileNamespace getVariable ["crow_sling_autoSling", false]) exitWith {};
 
-        // [_unit] call weapon_slinging_fnc_client_handleAnim;
+        [_unit] call weapon_slinging_fnc_client_handleAnim;
         _unit action ["SwitchWeapon", _unit, _unit, -1];
     };
 };
