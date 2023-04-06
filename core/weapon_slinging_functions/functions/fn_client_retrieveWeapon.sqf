@@ -1,7 +1,5 @@
 params ["_unit", ["_corpse", objNull]];
 
-// Spawn this function
-
 //private _weaponType = [_unit] call weapon_slinging_fnc_client_handleSwapTo; // grab secondaryWeapon or primaryWeapon
 
 private _weapon = primaryWeapon _unit;

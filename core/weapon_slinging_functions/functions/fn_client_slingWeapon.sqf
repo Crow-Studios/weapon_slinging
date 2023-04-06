@@ -1,7 +1,5 @@
 params ["_unit", "_weapon", ["_swapTo", "default"]];
 
-// Spawn this function
-
 if (_unit getVariable ["crow_sling_reloading",false]) exitWith {hint "You are currently reloading! You can't sling right now."}; // don't sling if reloading
 if (_unit getVariable ["crow_sling", false]) exitWith {};
 
@@ -64,22 +62,40 @@ switch (_swapTo) do
     case "handgun":
     {
         if (handgunWeapon _unit isEqualTo "") exitWith {};
-        _unit selectWeapon (handgunWeapon _unit)
+
+        private _coefAnim = getAnimSpeedCoef _unit;
+
+        private _coefNew = 2;
+
+        [_unit, _coefNew] remoteExec ["setAnimSpeedCoef"];
+
+        _unit selectWeapon (handgunWeapon _unit);
+
+        [
+            {
+                [(_this select 0), (_this select 1)] remoteExec ["setAnimSpeedCoef"];
+            },
+            [_unit, _coefAnim],
+            0.2
+        ] call CBA_fnc_waitAndExecute;
     };
 
     case "secondary": 
     {
-        _unit selectWeapon (secondaryWeapon _unit)
+        _unit selectWeapon (secondaryWeapon _unit);
     };
 
     case "binocular": 
     {
-        _unit selectWeapon (binocular _unit)
+        _unit selectWeapon (binocular _unit);
     };
 
     case "default": 
     {
-        [_unit] call weapon_slinging_fnc_client_handleAnim;
+        // if (profileNamespace getVariable ["crow_sling_autoSling", false]) exitWith {};
+
+        // [_unit] call weapon_slinging_fnc_client_handleAnim;
+        _unit action ["SwitchWeapon", _unit, _unit, -1];
     };
 };
 

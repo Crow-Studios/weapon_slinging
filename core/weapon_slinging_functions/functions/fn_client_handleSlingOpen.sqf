@@ -6,25 +6,25 @@ params ["_container"];
 
 _container addEventHandler ["ContainerOpened", {
 	params ["_container", "_unit"];
-
-	private _invOpened = [_container, _unit] spawn
-    {
-        params ["_container", "_unit"];
-
-		uiSleep 1; // without delay, it won't register it as opened so won't close
-
-        private _sling = _container getVariable ["crow_sling_helper_weapon", ""];
-
-        diag_log _sling;
-
-        if ( _sling != "" ) exitWith // prevent player from opening the sling inventory
+    [
         {
-            closeDialog 602;
+            private _sling = (_this select 0) getVariable ["crow_sling_helper_weapon", ""];
 
-            private _holder = "GroundWeaponHolder" createVehicle getPosATL _unit;
-            _holder setPos (_unit modelToWorld [0,0,0]);
+            diag_log _sling;
 
-            _unit action ["Gear",_holder];
-        };
-    };
+            if ( _sling != "" ) exitWith // prevent player from opening the sling inventory
+            {
+                closeDialog 602;
+
+                private _holder = "GroundWeaponHolder" createVehicle getPosATL (_this select 1);
+                _holder setPos ((_this select 1) modelToWorld [0,0,0]);
+
+                (_this select 1) action ["Gear",_holder];
+            };
+        },
+        [_container, _unit],
+        1
+    ] call CBA_fnc_waitAndExecute;
 }];
+
+// removed the spawn, swapped to cba_fnc_waitAndExecute instead
