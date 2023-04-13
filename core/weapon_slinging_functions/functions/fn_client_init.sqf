@@ -16,4 +16,6 @@ inGameUISetEventHandler [
 
 [] spawn weapon_slinging_fnc_client_handleKeyDown;
 
+[_unit] call weapon_slinging_fnc_client_handleGetIn;
+
 [_unit] call weapon_slinging_fnc_client_handleKilled;
