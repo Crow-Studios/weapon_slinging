@@ -21,20 +21,36 @@ class weapon_slings
     };
     class default_back : default
     {
-        offset[] = {0.03,0.4,0.15};
-        vector[] = {-0.1,1,0.5};
+        offset[] = {-0.13,0.45,0};
+        vector[] = {-0.1,2,0.5};
 
-        rotation = 185;
+        rotation = 15;
     };
-    
-    // these are default classes, they can also be selected via CBA settings. If you want weapon specific ones, do this:
+
+    class default_back_launcher : default_back
+    {
+        offset[] = {0.03,0.45,0};
+    };
 
     /*
+
+    class arifle_SPAR_01_blk_F : default_tilted
+    {
+        sling = 1;
+        rotation = 43;
+    }; // debug class
     
+    */
+
+    /*
+
+    // these are default classes, they can also be selected via CBA settings. If you want weapon specific ones, do this:    
     class default; // import base class (if not already defined)
 
     class weapon_classname : default
     {
+        sling = 1;
+
         // custom values here
     };
     

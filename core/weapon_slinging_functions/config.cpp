@@ -21,6 +21,21 @@ class CfgFunctions
     { // weapon_slinging_fnc
         class functions
         {
+            class client_handleAnim
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleAnim.sqf";
+            };
+            class client_handleKeyDown
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleKeyDown.sqf";
+            };
+            class client_handleGetIn
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleGetIn.sqf";
+            };
             class client_handleKilled
             {
 				postInit = 0;
@@ -30,6 +45,16 @@ class CfgFunctions
             {
 				postInit = 0;
                 file = "weapon_slinging_functions\functions\fn_client_handleSling.sqf";
+            };
+            class client_handleSlingOpen
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleSlingOpen.sqf";
+            };
+            class client_handleSwapTo
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_handleSwapTo.sqf";
             };
             class client_hasACE
             {
@@ -50,6 +75,11 @@ class CfgFunctions
             {
 				postInit = 0;
                 file = "weapon_slinging_functions\functions\fn_client_slingWeapon.sqf";
+            };
+            class client_slingLauncher
+            {
+				postInit = 0;
+                file = "weapon_slinging_functions\functions\fn_client_slingLauncher.sqf";
             };
             class server_executeAnim
             {

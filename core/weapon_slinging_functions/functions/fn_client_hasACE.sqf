@@ -3,3 +3,5 @@ if ( isClass (configFile >> "cfgPatches" >> "ACE_Medical") ) then {
 } else {
     false
 };
+
+// this doesn't get used at all, fyi
