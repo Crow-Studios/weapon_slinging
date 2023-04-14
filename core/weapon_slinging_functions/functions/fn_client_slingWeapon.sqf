@@ -21,6 +21,10 @@ private _magazines = primaryWeaponMagazine _unit; // returns ["main_mag", "secon
 private _attachments = primaryWeaponItems _unit;
 private _ammo = _unit ammo _weapon;
 
+if (_magazines isEqualTo []) then {
+    private _magazines = ["", ""];
+};
+
 _unit setVariable ["crow_sling_helper", _weaponHolder, true];
 
 _weaponHolder setVariable ["crow_sling_helper_weapon", _weapon, true]; // fix taking in mp
