@@ -39,6 +39,8 @@ deleteVehicle _weaponHolder;
 
 private _mag            = (_magazines select 0);
 private _ammo           = (_magazines select 1);
+private _fireMode       = (_magazines select 2);
+private _muzzleType     = (_magazines select 3);
 // don't ask
 
 {
@@ -55,7 +57,7 @@ _unit setAmmo [primaryWeapon _unit, _ammo];
 
 //uiSleep 0.5;
 
-_unit selectWeapon _weapon;
+_unit selectWeapon [_weapon, _muzzleType, _fireMode];
 
 _unit setVariable ["crow_sling", false];
 

@@ -21,6 +21,11 @@ private _magazines = primaryWeaponMagazine _unit; // returns ["main_mag", "secon
 private _attachments = primaryWeaponItems _unit;
 private _ammo = _unit ammo _weapon;
 
+private _weaponState = _unit weaponState _weapon;
+
+private _muzzleType = _weaponState select 1;
+private _fireMode = _weaponState select 2;
+
 if (_magazines isEqualTo []) then {
     private _magazines = ["", ""];
 };
@@ -28,7 +33,7 @@ if (_magazines isEqualTo []) then {
 _unit setVariable ["crow_sling_helper", _weaponHolder, true];
 
 _weaponHolder setVariable ["crow_sling_helper_weapon", _weapon, true]; // fix taking in mp
-_weaponHolder setVariable ["crow_sling_helper_weapon_magazines", [_magazines, _ammo]];
+_weaponHolder setVariable ["crow_sling_helper_weapon_magazines", [_magazines, _ammo, _fireMode, _muzzleType]];
 _weaponHolder setVariable ["crow_sling_helper_weapon_attachments", _attachments];
 // store data to be taken later
 
@@ -67,21 +72,13 @@ switch (_swapTo) do
     {
         if (handgunWeapon _unit isEqualTo "") exitWith {};
 
-        private _coefAnim = getAnimSpeedCoef _unit;
+        // private _coefAnim = getAnimSpeedCoef _unit;
 
-        private _coefNew = 2;
+        // private _coefNew = 2;
 
-        [_unit, _coefNew] remoteExec ["setAnimSpeedCoef"];
+        // [_unit, _coefNew] remoteExec ["setAnimSpeedCoef"];
 
         _unit selectWeapon (handgunWeapon _unit);
-
-        [
-            {
-                [(_this select 0), (_this select 1)] remoteExec ["setAnimSpeedCoef"];
-            },
-            [_unit, _coefAnim],
-            0.2
-        ] call CBA_fnc_waitAndExecute;
     };
 
     case "secondary": 
