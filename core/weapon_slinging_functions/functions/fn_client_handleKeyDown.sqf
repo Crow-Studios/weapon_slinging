@@ -4,10 +4,9 @@ waituntil {!(IsNull (findDisplay 46))}; // wait until player exists
 
 private _display_46_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown",
 {
-    if (profileNamespace getVariable ["crow_sling_autoSling", false]) then 
+    private _unit = player;
+    if (_unit getVariable ["crow_sling_autoSling", false]) then 
     {
-
-        private _unit = player;
 
         private _curWeapon = currentWeapon _unit;
         private _weapon = primaryWeapon _unit;

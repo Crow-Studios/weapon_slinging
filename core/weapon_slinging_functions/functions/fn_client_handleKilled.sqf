@@ -10,7 +10,7 @@ _unit addEventHandler ["Respawn", {
 
     if (_weaponHolder isEqualTo objNull) exitWith {nil};
 
-    if (missionNamespace getVariable ["crow_sling_restoreLoadout", false]) then {
+    if (_unit getVariable ["crow_sling_restoreLoadout", false]) then {
         _unit removeWeapon (primaryWeapon _unit);
         [_unit, _corpse] call weapon_slinging_fnc_client_retrieveWeapon;
     };

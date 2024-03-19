@@ -11,7 +11,7 @@ ADDON = true;
     false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {  
         params ["_value"];
-		profileNamespace setVariable ["crow_sling_slingType",_value];
+		player setVariable ["crow_sling_slingType",_value];
     }
 ] call CBA_fnc_addSetting;
 
@@ -24,7 +24,7 @@ ADDON = true;
     false, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {  
         params ["_value"];
-		profileNamespace setVariable ["crow_sling_autoSling",_value];
+		player setVariable ["crow_sling_autoSling",_value];
     }
 ] call CBA_fnc_addSetting;
 
@@ -37,6 +37,6 @@ ADDON = true;
     true, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {  
         params ["_value"];
-		profileNamespace setVariable ["crow_sling_restoreLoadout",_value];
+		player setVariable ["crow_sling_restoreLoadout",_value];
     }
 ] call CBA_fnc_addSetting;

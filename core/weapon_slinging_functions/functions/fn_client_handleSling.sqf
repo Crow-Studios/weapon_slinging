@@ -1,6 +1,6 @@
 params ["_unit", "_weapon"];
 
-// if (profileNamespace getVariable ["crow_sling_autoSling", false]) exitWith {}; // no point having this enabled, is there?
+// if (_unit getVariable ["crow_sling_autoSling", false]) exitWith {}; // no point having this enabled, is there?
 // see above, that was a lie
 
 if (_unit getVariable ["crow_sling", false]) then {

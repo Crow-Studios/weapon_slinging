@@ -42,7 +42,7 @@ private _rail   = (_attachments select 1);
 private _optics = (_attachments select 2);
 private _bipod  = (_attachments select 3);
 
-private _slingType = profileNamespace getVariable ["crow_sling_slingType", "default"];
+private _slingType = _unit getVariable ["crow_sling_slingType", "default"];
 
 private _offset     = [(configFile >> "weapon_slings" >> _slingType), "offset", []] call BIS_fnc_returnConfigEntry;
 private _rotation   = [(configFile >> "weapon_slings" >> _slingType), "rotation", 0] call BIS_fnc_returnConfigEntry;
@@ -93,7 +93,7 @@ switch (_swapTo) do
 
     case "default": 
     {
-        // if (profileNamespace getVariable ["crow_sling_autoSling", false]) exitWith {};
+        // if (_unit getVariable ["crow_sling_autoSling", false]) exitWith {};
 
         [_unit] call weapon_slinging_fnc_client_handleAnim;
         _unit action ["SwitchWeapon", _unit, _unit, -1];
